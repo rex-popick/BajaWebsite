@@ -101,7 +101,10 @@
     }
 
     .mySlides {
-      display: none
+      flex: 0 0 100%;
+      /* position: relative; */
+      display: block; /* ensure it's not display:none anymore */
+
     }
 
     img {
@@ -116,6 +119,10 @@
       margin: auto;
     }
 
+    .slider-track {
+      transition: transform 1.5s ease; /* smooth slide */   
+    }
+
     /* Next & previous buttons */
     .prev,
     .next {
@@ -125,9 +132,11 @@
       width: auto;
       padding: 16px;
       margin-top: -22px;
-      color: var(--baja-white);
+      opacity: 1;
+      color: var(#000) !important;
+      background: rgba(255, 255, 255, 0.2);
       font-weight: bold;
-      font-size: 18px;
+      font-size: 24px;
       transition: 0.6s ease;
       border-radius: 0 3px 3px 0;
       user-select: none;
@@ -139,10 +148,10 @@
       border-radius: 3px 0 0 3px;
     }
 
-    /* On hover, add a black background color with a little bit see-through */
+    /* On hover, make white stronger */
     .prev:hover,
     .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background: rgba(255, 255, 255, 0.4);
     }
 
     /* Caption text */
@@ -174,7 +183,7 @@
       height: 15px;
       width: 15px;
       margin: 0 2px;
-      background-color: #bbb;
+      background-color: var(--baja-white);
       border-radius: 50%;
       display: inline-block;
       transition: background-color 0.6s ease;
@@ -182,7 +191,7 @@
 
     .active,
     .dot:hover {
-      background-color: #717171;
+      background-color: var(--baja-dark-gray);
     }
 
     /* Fading animation */
@@ -266,35 +275,39 @@
 
   <body>
 
-    <div class="slideshow-container">
+    <div class="slideshow-container" id="slideshow">
+      <div class="slider-track" id="sliderTrack">
 
-      <div class="mySlides">
-        <img src="assets/img/index_img/hands.webp" style="width:100%" height="150%">
-        <h3 class="text">Baja Racing at Cornell<br>
-          Design. Build. Race.<br>
-          <!-- <a href="apply.html"><button>Apply for Fall 2024</button></a>-->
-        </h3>
+        <div class="mySlides">
+          <img src="assets/img/index_img/hands.webp" style="width:100%">
+          <h3 class="text">Baja Racing at Cornell<br>
+            Design. Build. Race.<br>
+            <!-- <a href="apply.html"><button>Apply for Fall 2025</button></a> -->
+            <a class="cta-btn" href="apply.html">Apply for Fall 2025 </a>
+          </h3>
+        </div>
+
+        <div class="mySlides">
+          <img src="assets/img/index_img/index-sunset-hero.webp" style="width:100%">
+          <h3 class="text">2024-2025 <br> Season, <br> TG21 <br> 
+            <!-- <a href="https://youtu.be/J2CWbC5XNJM?si=vITFLSbf6yUpweg-"
+              style="font-size:24px"><button>Play <i class="fa fa-play"></button></i></a></h3> -->
+        </div>
+
+        <div class="mySlides">
+          <img src="assets/img/index_img/tg21-back-axel.webp" style="width:100%">
+          <h3 class="text">Arizona &  Maryland <br> Competitions, <br>
+            1st Place</h3>
+        </div>
+
+        <div class="mySlides">
+          <img src="assets/img/index_img/nat_and_car.webp" style="width:100%">
+          <h3 class="text">2023-2024 <br> TGXX <br> Iron Team, 2nd Place</h3>
+        </div>
       </div>
 
-      <div class="mySlides">
-        <img src="assets/img/index_img/nat_and_car.webp" style="width:100%">
-        <h3 class="text">2022-2023 Season <br>TG19 <br> <a href="https://youtu.be/J2CWbC5XNJM?si=vITFLSbf6yUpweg-"
-            style="font-size:24px"><button>Play <i class="fa fa-play"></button></i></a></h3>
-      </div>
-
-      <div class="mySlides">
-        <img src="assets/img/index_img/bannertgxx.webp" style="width:100%">
-        <h3 class="text">2023-2024 <br> "TGXX" <br> California Competition, 1st Place</h3>
-      </div>
-
-      <div class="mySlides">
-        <img src="assets/img/index_img/kyra.webp" style="width:100%">
-        <h3 class="text">2023-2024 <br> "TGXX" <br> Iron Team, 2nd Place</h3>
-      </div>
-
-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
-
+      <a href="#" class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a href="#" class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
 
     <div id="dots" style="text-align:center">
@@ -304,6 +317,50 @@
       <span class="dot" onclick="currentSlide(4)"></span>
 
     </div>
+<!-- 
+    <script>
+        let slideIndex = 1;
+        const sliderTrack = document.getElementById("sliderTrack");
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+
+        function showSlides(n) {
+            const totalSlides = slides.length;
+            if (n > totalSlides) { slideIndex = 1; }
+            if (n < 1) { slideIndex = totalSlides; }
+            // Update the transform to slide horizontally (assumes each slide is 100% width)
+            sliderTrack.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+            // Update dots
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            if(dots[slideIndex - 1]) {
+                dots[slideIndex - 1].classList.add("active");
+            }
+        }
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        // Initialize the slider position
+        showSlides(slideIndex);
+
+        // Set auto slide interval
+        let interval = setInterval(() => plusSlides(1), 2500);
+
+        // Pause slide show on mouse enter and resume on mouse leave
+        const slideshow = document.getElementById("slideshow");
+        slideshow.addEventListener("mouseenter", () => clearInterval(interval));
+        slideshow.addEventListener("mouseleave", () => {
+            interval = setInterval(() => plusSlides(1), 2500);
+        });
+    </script> -->
 
     <script>
       var slideIndex = 1;
@@ -332,6 +389,13 @@
         slides[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].className += " active";
       }
+      let interval = setInterval(() => plusSlides(1), 2500);
+
+      const slideshow = document.getElementById("slideshow");
+      slideshow.addEventListener("mouseenter", () => clearInterval(interval));
+      slideshow.addEventListener("mouseleave", () => {
+        interval = setInterval(() => plusSlides(1), 2500);
+      });
     </script>
 
 
@@ -453,10 +517,6 @@
 
         </div>
       </section><!-- End Services Section -->
-
-
-
-
 
     </main><!-- End #main -->
 

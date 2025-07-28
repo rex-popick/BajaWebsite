@@ -965,6 +965,24 @@ button:hover {
   border-color: #fff;
 }
 
+.cta-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--baja-white);
+  background: var(--baja-red);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  text-decoration: none;
+}
+
+.cta-btn:hover {
+  background: #9e1925; /* Slightly darker red on hover */
+  color: var(--baja-white);
+}
+
+
 /*--------------------------------------------------------------
 # Portfolio
 --------------------------------------------------------------*/

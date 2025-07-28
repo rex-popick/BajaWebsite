@@ -1,0 +1,519 @@
+diff --git a/.DS_Store b/.DS_Store
+index 8fed1f7..52b5d57 100644
+Binary files a/.DS_Store and b/.DS_Store differ
+diff --git a/about.html b/about.html
+index ea5d585..cc33db8 100644
+--- a/about.html
++++ b/about.html
+@@ -85,7 +85,7 @@
+ 
+         <div class="row no-gutters" id="first">
+           <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
+-            <img src="assets/img/about_img/cornering.webp" alt="">
++            <img src="assets/img/about_img/s&t.webp" alt="">
+             <div id="next">
+               <h3>About the Competition</h3>
+               <p>
+@@ -123,12 +123,12 @@
+                 </p>
+                 <!--  <a href="#" class="about-btn">About us <i class="bx bx-chevron-right"></i></a>-->
+               </div>
+-              <img id="next-img" src="assets/img/about_img/static.webp" alt="">
++              <img id="next-img" src="assets/img/about_img/static-award.webp" alt="">
+             </div>
+ 
+             <div class="row no-gutters">
+               <div class="content col-xl-5 d-flex align-items-stretch" data-aos="fade-up">
+-                <img src="assets/img/about_img/dynamic.webp" alt="">
++                <img src="assets/img/about_img/sledpull.webp" alt="">
+                 <div id="next">
+                   <h3>Dynamic Events</h3>
+                   <p>
+diff --git a/assets/.DS_Store b/assets/.DS_Store
+index ea554d0..50ee982 100644
+Binary files a/assets/.DS_Store and b/assets/.DS_Store differ
+diff --git a/assets/css/.DS_Store b/assets/css/.DS_Store
+index bb24f85..00384a3 100644
+Binary files a/assets/css/.DS_Store and b/assets/css/.DS_Store differ
+diff --git a/assets/css/about.css b/assets/css/about.css
+index fd174cf..06f0d23 100644
+--- a/assets/css/about.css
++++ b/assets/css/about.css
+@@ -376,7 +376,7 @@ pages. This bar contains the Baja logo as well as a navigation bar.
+ #hero {
+   width: 100%;
+   height: 100vh;
+-  background: url("../img/about_img/about_hero.jpg") top center;
++  background: url("../img/about_img/about-hero.webp") top center;
+   background-size: cover;
+   overflow: hidden;
+   position: relative;
+@@ -510,8 +510,8 @@ pages. This bar contains the Baja logo as well as a navigation bar.
+ }
+ 
+ .about img {
+-  width: 400px;
+-  height: 400px;
++  width: 500px;
++  height: 300px;
+   object-fit: cover;
+ }
+ .about img#next-img {
+diff --git a/assets/css/gobaja.css b/assets/css/gobaja.css
+index c4014a7..405273c 100644
+--- a/assets/css/gobaja.css
++++ b/assets/css/gobaja.css
+@@ -376,7 +376,7 @@ h6 {
+ #hero {
+   width: 100%;
+   height: 100vh;
+-  background: url("../img/girlsofbaja_img/accel_oregon.webp") top center;
++  background: url("../img/girlsofbaja_img/gob-hero.webp") top center;
+   background-size: cover;
+   position: relative;
+   margin-bottom: -90px;
+diff --git a/assets/css/style.css b/assets/css/style.css
+index a6d5c07..79311ae 100644
+--- a/assets/css/style.css
++++ b/assets/css/style.css
+@@ -965,6 +965,24 @@ button:hover {
+   border-color: #fff;
+ }
+ 
++.cta-btn {
++  display: inline-block;
++  padding: 10px 28px;
++  font-size: 24px;
++  font-weight: 500;
++  color: var(--baja-white);
++  background: var(--baja-red);
++  border-radius: 4px;
++  transition: background 0.3s ease;
++  text-decoration: none;
++}
++
++.cta-btn:hover {
++  background: #9e1925; /* Slightly darker red on hover */
++  color: var(--baja-white);
++}
++
++
+ /*--------------------------------------------------------------
+ # Portfolio
+ --------------------------------------------------------------*/
+diff --git a/assets/css/timeline.css b/assets/css/timeline.css
+index 95151c2..9582b09 100644
+--- a/assets/css/timeline.css
++++ b/assets/css/timeline.css
+@@ -361,7 +361,7 @@ h1, h2, h3, h4, h5, h6 {
+ #hero {
+   width: 100%;
+   height: 100vh;
+-  background: url("../img/timeline_img/timelinehero.webp") top center;
++  background: url("../img/timeline_img/history-hero.webp") top center;
+   background-size: cover;
+   overflow: hidden;
+   position: relative;
+diff --git a/assets/img/.DS_Store b/assets/img/.DS_Store
+index 71e1d1d..9b7cdc2 100644
+Binary files a/assets/img/.DS_Store and b/assets/img/.DS_Store differ
+diff --git a/assets/img/about_img/about_hero.jpg b/assets/img/about_img/about_hero.jpg
+deleted file mode 100644
+index 94a1d4c..0000000
+Binary files a/assets/img/about_img/about_hero.jpg and /dev/null differ
+diff --git a/assets/img/about_img/about_hero.webp b/assets/img/about_img/about_hero.webp
+deleted file mode 100644
+index eaf97ce..0000000
+Binary files a/assets/img/about_img/about_hero.webp and /dev/null differ
+diff --git a/assets/img/about_img/cornering.jpg b/assets/img/about_img/cornering.jpg
+deleted file mode 100644
+index 3a1d0cd..0000000
+Binary files a/assets/img/about_img/cornering.jpg and /dev/null differ
+diff --git a/assets/img/about_img/cornering.webp b/assets/img/about_img/cornering.webp
+deleted file mode 100644
+index ecd20aa..0000000
+Binary files a/assets/img/about_img/cornering.webp and /dev/null differ
+diff --git a/assets/img/about_img/dynamic.jpg b/assets/img/about_img/dynamic.jpg
+deleted file mode 100644
+index f939655..0000000
+Binary files a/assets/img/about_img/dynamic.jpg and /dev/null differ
+diff --git a/assets/img/about_img/dynamic.webp b/assets/img/about_img/dynamic.webp
+deleted file mode 100644
+index 59602b6..0000000
+Binary files a/assets/img/about_img/dynamic.webp and /dev/null differ
+diff --git a/assets/img/about_img/static.jpg b/assets/img/about_img/static.jpg
+deleted file mode 100644
+index 59eb432..0000000
+Binary files a/assets/img/about_img/static.jpg and /dev/null differ
+diff --git a/assets/img/about_img/static.webp b/assets/img/about_img/static.webp
+deleted file mode 100644
+index 1cf62d0..0000000
+Binary files a/assets/img/about_img/static.webp and /dev/null differ
+diff --git a/assets/img/girlsofbaja_img/accel_oregon.jpg b/assets/img/girlsofbaja_img/accel_oregon.jpg
+deleted file mode 100644
+index 425ebea..0000000
+Binary files a/assets/img/girlsofbaja_img/accel_oregon.jpg and /dev/null differ
+diff --git a/assets/img/girlsofbaja_img/accel_oregon.webp b/assets/img/girlsofbaja_img/accel_oregon.webp
+deleted file mode 100644
+index 5f0956e..0000000
+Binary files a/assets/img/girlsofbaja_img/accel_oregon.webp and /dev/null differ
+diff --git a/assets/img/girlsofbaja_img/accel_oregon2.jpg b/assets/img/girlsofbaja_img/accel_oregon2.jpg
+deleted file mode 100644
+index 4003abe..0000000
+Binary files a/assets/img/girlsofbaja_img/accel_oregon2.jpg and /dev/null differ
+diff --git a/assets/img/index_img/bannertgxx.jpg b/assets/img/index_img/bannertgxx.jpg
+deleted file mode 100644
+index fa70831..0000000
+Binary files a/assets/img/index_img/bannertgxx.jpg and /dev/null differ
+diff --git a/assets/img/index_img/bannertgxx.webp b/assets/img/index_img/bannertgxx.webp
+deleted file mode 100644
+index 8d927d2..0000000
+Binary files a/assets/img/index_img/bannertgxx.webp and /dev/null differ
+diff --git a/assets/img/index_img/hands.JPG b/assets/img/index_img/hands.JPG
+deleted file mode 100644
+index b380364..0000000
+Binary files a/assets/img/index_img/hands.JPG and /dev/null differ
+diff --git a/assets/img/index_img/kyra.jpg b/assets/img/index_img/kyra.jpg
+deleted file mode 100644
+index 0d96540..0000000
+Binary files a/assets/img/index_img/kyra.jpg and /dev/null differ
+diff --git a/assets/img/index_img/kyra.webp b/assets/img/index_img/kyra.webp
+deleted file mode 100644
+index 7137866..0000000
+Binary files a/assets/img/index_img/kyra.webp and /dev/null differ
+diff --git a/assets/img/index_img/nat_and_car.jpg b/assets/img/index_img/nat_and_car.jpg
+deleted file mode 100644
+index 1094fa2..0000000
+Binary files a/assets/img/index_img/nat_and_car.jpg and /dev/null differ
+diff --git a/assets/img/index_img/nat_karo.jpg b/assets/img/index_img/nat_karo.jpg
+deleted file mode 100644
+index 10f544e..0000000
+Binary files a/assets/img/index_img/nat_karo.jpg and /dev/null differ
+diff --git a/assets/img/timeline_img/timelinehero.webp b/assets/img/timeline_img/timelinehero.webp
+deleted file mode 100644
+index c1d6b8a..0000000
+Binary files a/assets/img/timeline_img/timelinehero.webp and /dev/null differ
+diff --git a/girlsofbaja.html b/girlsofbaja.html
+index 33bb334..50e3d1a 100644
+--- a/girlsofbaja.html
++++ b/girlsofbaja.html
+@@ -96,10 +96,10 @@
+           <a class="cta-btn" href="mailto:cnb54@cornell.edu">Contact Us!</a>
+         </div>
+         <br><br><br>
+-        <div class="embed-responsive embed-responsive-16by9">
++        <!-- <div class="embed-responsive embed-responsive-16by9">
+           <iframe width="560" height="315" src="https://www.youtube.com/embed/mdLG6ppKVhE" frameborder="0"
+             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-        </div>
++        </div> -->
+       </div>
+     </section><!-- End Cta Section -->
+ 
+diff --git a/index.html b/index.html
+index 290bfd9..69308a4 100644
+--- a/index.html
++++ b/index.html
+@@ -101,7 +101,10 @@
+     }
+ 
+     .mySlides {
+-      display: none
++      flex: 0 0 100%;
++      /* position: relative; */
++      display: block; /* ensure it's not display:none anymore */
++
+     }
+ 
+     img {
+@@ -116,6 +119,10 @@
+       margin: auto;
+     }
+ 
++    .slider-track {
++      transition: transform 1.5s ease; /* smooth slide */   
++    }
++
+     /* Next & previous buttons */
+     .prev,
+     .next {
+@@ -125,9 +132,11 @@
+       width: auto;
+       padding: 16px;
+       margin-top: -22px;
+-      color: var(--baja-white);
++      opacity: 1;
++      color: var(#000) !important;
++      background: rgba(255, 255, 255, 0.2);
+       font-weight: bold;
+-      font-size: 18px;
++      font-size: 24px;
+       transition: 0.6s ease;
+       border-radius: 0 3px 3px 0;
+       user-select: none;
+@@ -139,10 +148,10 @@
+       border-radius: 3px 0 0 3px;
+     }
+ 
+-    /* On hover, add a black background color with a little bit see-through */
++    /* On hover, make white stronger */
+     .prev:hover,
+     .next:hover {
+-      background-color: rgba(0, 0, 0, 0.8);
++      background: rgba(255, 255, 255, 0.4);
+     }
+ 
+     /* Caption text */
+@@ -174,7 +183,7 @@
+       height: 15px;
+       width: 15px;
+       margin: 0 2px;
+-      background-color: #bbb;
++      background-color: var(--baja-white);
+       border-radius: 50%;
+       display: inline-block;
+       transition: background-color 0.6s ease;
+@@ -182,7 +191,7 @@
+ 
+     .active,
+     .dot:hover {
+-      background-color: #717171;
++      background-color: var(--baja-dark-gray);
+     }
+ 
+     /* Fading animation */
+@@ -266,35 +275,39 @@
+ 
+   <body>
+ 
+-    <div class="slideshow-container">
++    <div class="slideshow-container" id="slideshow">
++      <div class="slider-track" id="sliderTrack">
+ 
+-      <div class="mySlides">
+-        <img src="assets/img/index_img/hands.webp" style="width:100%" height="150%">
+-        <h3 class="text">Baja Racing at Cornell<br>
+-          Design. Build. Race.<br>
+-          <!-- <a href="apply.html"><button>Apply for Fall 2024</button></a>-->
+-        </h3>
+-      </div>
++        <div class="mySlides">
++          <img src="assets/img/index_img/hands.webp" style="width:100%">
++          <h3 class="text">Baja Racing at Cornell<br>
++            Design. Build. Race.<br>
++            <!-- <a href="apply.html"><button>Apply for Fall 2025</button></a> -->
++            <a class="cta-btn" href="apply.html">Apply for Fall 2025 </a>
++          </h3>
++        </div>
+ 
+-      <div class="mySlides">
+-        <img src="assets/img/index_img/nat_and_car.webp" style="width:100%">
+-        <h3 class="text">2022-2023 Season <br>TG19 <br> <a href="https://youtu.be/J2CWbC5XNJM?si=vITFLSbf6yUpweg-"
+-            style="font-size:24px"><button>Play <i class="fa fa-play"></button></i></a></h3>
+-      </div>
++        <div class="mySlides">
++          <img src="assets/img/index_img/index-sunset-hero.webp" style="width:100%">
++          <h3 class="text">2024-2025 <br> Season, <br> TG21 <br> 
++            <!-- <a href="https://youtu.be/J2CWbC5XNJM?si=vITFLSbf6yUpweg-"
++              style="font-size:24px"><button>Play <i class="fa fa-play"></button></i></a></h3> -->
++        </div>
+ 
+-      <div class="mySlides">
+-        <img src="assets/img/index_img/bannertgxx.webp" style="width:100%">
+-        <h3 class="text">2023-2024 <br> "TGXX" <br> California Competition, 1st Place</h3>
+-      </div>
++        <div class="mySlides">
++          <img src="assets/img/index_img/tg21-back-axel.webp" style="width:100%">
++          <h3 class="text">Arizona &  Maryland <br> Competitions, <br>
++            1st Place</h3>
++        </div>
+ 
+-      <div class="mySlides">
+-        <img src="assets/img/index_img/kyra.webp" style="width:100%">
+-        <h3 class="text">2023-2024 <br> "TGXX" <br> Iron Team, 2nd Place</h3>
++        <div class="mySlides">
++          <img src="assets/img/index_img/nat_and_car.webp" style="width:100%">
++          <h3 class="text">2023-2024 <br> TGXX <br> Iron Team, 2nd Place</h3>
++        </div>
+       </div>
+ 
+-      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+-      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+-
++      <a href="#" class="prev" onclick="plusSlides(-1)">&#10094;</a>
++      <a href="#" class="next" onclick="plusSlides(1)">&#10095;</a>
+     </div>
+ 
+     <div id="dots" style="text-align:center">
+@@ -304,6 +317,50 @@
+       <span class="dot" onclick="currentSlide(4)"></span>
+ 
+     </div>
++<!-- 
++    <script>
++        let slideIndex = 1;
++        const sliderTrack = document.getElementById("sliderTrack");
++        const slides = document.getElementsByClassName("mySlides");
++        const dots = document.getElementsByClassName("dot");
++
++        function showSlides(n) {
++            const totalSlides = slides.length;
++            if (n > totalSlides) { slideIndex = 1; }
++            if (n < 1) { slideIndex = totalSlides; }
++            // Update the transform to slide horizontally (assumes each slide is 100% width)
++            sliderTrack.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
++
++            // Update dots
++            for (let i = 0; i < dots.length; i++) {
++                dots[i].classList.remove("active");
++            }
++            if(dots[slideIndex - 1]) {
++                dots[slideIndex - 1].classList.add("active");
++            }
++        }
++
++        function plusSlides(n) {
++            showSlides(slideIndex += n);
++        }
++
++        function currentSlide(n) {
++            showSlides(slideIndex = n);
++        }
++
++        // Initialize the slider position
++        showSlides(slideIndex);
++
++        // Set auto slide interval
++        let interval = setInterval(() => plusSlides(1), 2500);
++
++        // Pause slide show on mouse enter and resume on mouse leave
++        const slideshow = document.getElementById("slideshow");
++        slideshow.addEventListener("mouseenter", () => clearInterval(interval));
++        slideshow.addEventListener("mouseleave", () => {
++            interval = setInterval(() => plusSlides(1), 2500);
++        });
++    </script> -->
+ 
+     <script>
+       var slideIndex = 1;
+@@ -332,6 +389,13 @@
+         slides[slideIndex - 1].style.display = "block";
+         dots[slideIndex - 1].className += " active";
+       }
++      let interval = setInterval(() => plusSlides(1), 2500);
++
++      const slideshow = document.getElementById("slideshow");
++      slideshow.addEventListener("mouseenter", () => clearInterval(interval));
++      slideshow.addEventListener("mouseleave", () => {
++        interval = setInterval(() => plusSlides(1), 2500);
++      });
+     </script>
+ 
+ 
+@@ -454,10 +518,6 @@
+         </div>
+       </section><!-- End Services Section -->
+ 
+-
+-
+-
+-
+     </main><!-- End #main -->
+ 
+     <!-- ======= Footer ======= -->
+diff --git a/team.html b/team.html
+index 451d8a8..7e5afb0 100644
+--- a/team.html
++++ b/team.html
+@@ -281,7 +281,7 @@
+           <h2 id="drivetrain">Drivetrain Subteam</h2>
+           <div class="text-left">
+             <p>The drivetrain subteam designs and manufactures the vehicle's custom continuously variable transmission
+-              (CVT), gearbox, driveshafts, and wheel hubs. Component design is driven by extensive structural and
++              (CVT), gearboxs, driveshafts, and wheel hubs. Component design is driven by extensive structural and
+               thermal analysis that is validated with an engine dynamometer and on-car telemetry systems. With all
+               vehicles in the competition limited to a 10 HP engine, a focus is placed on designing for reliability
+               and power efficiency.</p>
+@@ -555,7 +555,7 @@
+             <div class="pic"><img src="assets/img/headshots/Sara_Pagliuco.webp" class="img-fluid" alt=""></div>
+             <div class="member-info">
+               <h4 id="bold-name">Sara Pagliuco</h4>
+-              <span>Engineering '26</span>
++              <span>Mechanical Engineering '26</span>
+               <div class="social">
+                 <a href="https://www.linkedin.com/in/sara-pagliuco-b91876216/"><i class="icofont-linkedin"></i></a>
+               </div>
+@@ -568,7 +568,7 @@
+               <h4 id="bold-name">Camille Eckert</h4>
+               <span>Mechanical Engineering '28</span>
+               <div class="social">
+-                <a href="www.linkedin.com/in/camille-eckert"><i class="icofont-linkedin"></i></a>
++                <a href="https://www.linkedin.com/in/camille-eckert"><i class="icofont-linkedin"></i></a>
+               </div>
+             </div>
+           </div>
+@@ -631,7 +631,7 @@
+               <h4 id="bold-name">Magnus Carson</h4>
+               <span>Mechanical Engineering '28</span>
+               <div class="social">
+-                <a href="https://www.linkedin.com/in/magnus-carlsen-3b67b3213"><i class="icofont-linkedin"></i></a>
++                <a href="https://linkedin.com/in/magnus-carson-976905327"><i class="icofont-linkedin"></i></a>
+               </div>
+             </div>
+           </div>
+@@ -668,25 +668,25 @@
+             </div>
+           </div>
+ 
+-          <!-- ’26 -->
+           <div class="member" data-aos="fade-up">
+-            <div class="pic"><img src="assets/img/headshots/aaron.webp" class="img-fluid" alt=""></div>
++            <div class="pic"><img src="assets/img/headshots/margaret.webp" class="img-fluid" alt=""></div>
+             <div class="member-info">
+-              <h4 id="bold-name">Aaron Chin</h4>
++              <h4 id="bold-name">Margaret Gates</h4>
+               <span>Mechanical Engineering '26</span>
+               <div class="social">
+-                <a href="https://www.linkedin.com/in/aaron-chin-7a81bb246"><i class="icofont-linkedin"></i></a>
++                <a href="https://www.linkedin.com/in/ma-gates"><i class="icofont-linkedin"></i></a>
+               </div>
+             </div>
+           </div>
+ 
++          
+           <div class="member" data-aos="fade-up">
+-            <div class="pic"><img src="assets/img/headshots/margaret.webp" class="img-fluid" alt=""></div>
++            <div class="pic"><img src="assets/img/headshots/aaron.webp" class="img-fluid" alt=""></div>
+             <div class="member-info">
+-              <h4 id="bold-name">Margaret Gates</h4>
+-              <span>Mechanical Engineering '26</span>
++              <h4 id="bold-name">Aaron Chin</h4>
++              <span>Mechanical Engineering '27</span>
+               <div class="social">
+-                <a href="https://www.linkedin.com/in/ma-gates"><i class="icofont-linkedin"></i></a>
++                <a href="https://www.linkedin.com/in/aaron-chin-7a81bb246"><i class="icofont-linkedin"></i></a>
+               </div>
+             </div>
+           </div>
+@@ -759,7 +759,7 @@
+               join one of our subteams. Will you join us as we race to the top? </p> -->
+               <p>We couldn't be more excited to welcome our newest members after the fall recruiting cycle! In your first semester, you 
+                 won’t be assigned to a specific subteam right away. Instead, you’ll work on a hands-on project that teaches core technical 
+-                and collaboration skills — and directly contributes to the team’s success. These projects are not just busy work; they prepare 
++                and collaboration skills — and directly contributes to the team’s success. These projects are not busy work; they prepare 
+                 you to join a subteam in your second year with confidence and experience. Will you join us as we race to the top?</p>
+             </div>
+             <div class="text-center mt-3">
+diff --git a/timeline.html b/timeline.html
+index e8561a6..055a748 100644
+--- a/timeline.html
++++ b/timeline.html
+@@ -1006,6 +1006,8 @@
+         </div>
+       </div>
+     </div>
++    
++    <div class="copyright">&copy; Copyright Cornell Baja Racing. All Rights Reserved</div>
+ 
+   </footer><!-- End Footer -->
+ 
