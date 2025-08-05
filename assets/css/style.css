@@ -166,7 +166,7 @@ h6 {
   position: relative;
   white-space: nowrap;
   float: left;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .nav-menu a {
@@ -184,8 +184,9 @@ h6 {
 .nav-menu a:hover,
 .nav-menu .active>a,
 .nav-menu li:hover>a {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+  color: var(--baja-red);
 }
 
 .header-scrolled .nav-menu>ul>li {

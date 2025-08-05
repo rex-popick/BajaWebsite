@@ -92,38 +92,43 @@
             <p>Stay tuned for our next opportunity in Fall 2025, and we look forward to seeing your application then! </p> -->
             <br>
             <p>
-              <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfNxmcE_pRKSp7ZtTklgBvI-_yqL4EvTTH56TezF5XoNSPYJQ/viewform?usp=dialog">
-                Upperclassmen (Due Sept. 4 @ 11:59 p.m.) </a>
+              <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfNxmcE_pRKSp7ZtTklgBvI-_yqL4EvTTH56TezF5XoNSPYJQ/viewform?usp=dialog"
+                data-date="2025-09-04" > Upperclassmen (Due Sept. 4 @ 11:59 p.m.) </a>
                 <br>
                 <div class="half-break"></div>
-                <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeZuv4g1Dh3LWd--kBJYIx83rkortvyCCf0lUu0xXICFhEHfw/viewform?usp=dialog">
-                  First-Year & Transfer (Due Oct. 16 @ 11:59 p.m.)
-                </a>
-              </p><br>
+                <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSeZuv4g1Dh3LWd--kBJYIx83rkortvyCCf0lUu0xXICFhEHfw/viewform?usp=dialog"
+                 data-date="2025-10-16" > First-Year & Transfer (Due Oct. 16 @ 11:59 p.m.) </a>
+              </p>
+                <br>
 
               <p>Want to learn more before submitting? <br> 
                 Join us at these events:</p>
               <div style="display: inline-block; text-align: left;">
                 <ul class="event-list">
-                  <li>
-                    <span class="event-title">Info Session #1: &nbsp;</span>
-                    <span class="event-details">Tuesday, Sept. 2, 5–6 p.m. @ Upson 206</span>
+                  <li data-date="2025-09-02">
+                    <span class="event-title">Info Session #1</span>
+                    <span class="event-details">Tuesday, Sept. 2 <br> 5–6 p.m. @ Upson 206</span>
                   </li>
-                  <li>
-                    <span class="event-title">Project Teams Fest: &nbsp;</span>
-                    <span class="event-details">Thursday, Sept. 4, 4–6 p.m. @ Duffield Atrium</span>
+                  <li data-date="2025-09-04">
+                    <span class="event-title">Project Teams Fest</span>
+                    <span class="event-details">Thursday, Sept. 4 <br> 4–6 p.m. @ Duffield Atrium</span>
+                  <li class="due" data-date="2025-09-04">
+                    <span class="due-title">Upperclassmen Apps Due</span>
                   </li>
-                  <li>
-                    <span class="event-title">Info Session #2: &nbsp;</span>
-                    <span class="event-details">Wednesday, Sept. 24, 4:30–5:30 p.m. @ Upson 222</span>
+                  <li data-date="2025-09-24">
+                    <span class="event-title">Info Session #2</span>
+                    <span class="event-details">Wednesday, Sept. 24 <br> 4:30–5:30 p.m. @ Upson 222</span>
                   </li>
-                  <li>
-                    <span class="event-title">Info Session #3: &nbsp;</span>
-                    <span class="event-details">Wednesday, Oct. 8, 4:30–5:30 p.m. @ Upson 222</span>
+                  <li data-date="2025-10-08">
+                    <span class="event-title">Info Session #3</span>
+                    <span class="event-details">Wednesday, Oct. 8 <br> 4:30–5:30 p.m. @ Upson 222</span>
                   </li>
-                  <li>
-                    <span class="event-title">Info Session #4: &nbsp;</span>
-                    <span class="event-details">Wednesday, Oct. 15, 4:30–5:30 p.m. @ Upson 222</span>
+                  <li data-date="2025-10-15">
+                    <span class="event-title">Info Session #4</span>
+                    <span class="event-details">Wednesday, Oct. 15 <br> 4:30–5:30 p.m. @ Upson 222</span>
+                  </li>
+                  <li class="due" data-date="2025-10-16">
+                    <span class="due-title">First/Transfer Apps Due</span>
                   </li>
                 </ul>
               </div>
@@ -156,7 +161,7 @@
               <p>
                 Contact us using the emails below:<br><br>
                 <strong>General Inquiries:</strong>
-                <a href="mailto:cornell.baja@gmail.com?subject=General%20Inquiry">cornell.baja@gmail.com</a><br>
+                <a href="mailto:baja@cornell.edu?subject=General%20Inquiry">baja@cornell.edu</a><br>
                 <strong>Sponsorships:</strong> 
                 <a href="mailto:cnb54@cornell.edu?subject=Sponsorship%20Inquiry&body=Hi%20Christina!%0A%0A">cnb54@cornell.edu</a><br>
               </p>
@@ -229,6 +234,34 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const today = new Date()
+    today.setHours(0,0,0,0);
+
+    // find every element that has a data-date
+    document.querySelectorAll('[data-date]').forEach(el => {
+      const due = new Date(el.getAttribute('data-date'));
+      due.setHours(0,0,0,0);
+      if (due < today) {
+        el.classList.add('past');
+      }
+    });
+
+    const list = document.querySelector('.event-list');
+    if (list) {
+      const items = Array.from(list.querySelectorAll('li[data-date]'));
+      const pastCount = items.filter(li => li.classList.contains('past')).length;
+      if (pastCount) {
+        list.classList.add('has-past');
+        list.style.setProperty(
+          '--past-percent',
+          `${(pastCount / items.length) * 100}%`
+        );
+      }
+    }
+  });
+  </script>
 
 </body>
 

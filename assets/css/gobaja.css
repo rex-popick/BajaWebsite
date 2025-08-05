@@ -144,13 +144,13 @@ h6 {
   position: relative;
   white-space: nowrap;
   float: left;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .nav-menu a {
   display: block;
   position: relative;
-  color: #2f4d5a;
+  color: black;
   padding: 20px 15px;
   transition: 0.3s;
   font-size: 13px;
@@ -162,8 +162,9 @@ h6 {
 .nav-menu a:hover,
 .nav-menu .active>a,
 .nav-menu li:hover>a {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+  color: var(--baja-red);
 }
 
 .header-scrolled .nav-menu>ul>li {
@@ -189,7 +190,7 @@ h6 {
   opacity: 0;
   visibility: hidden;
   padding: 10px 0;
-  background: #fff;
+  background: black;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: ease all 0.3s;
 }

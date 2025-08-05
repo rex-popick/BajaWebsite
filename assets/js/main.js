@@ -84,27 +84,35 @@
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
-  // Navigation active state on scroll
+  // Navigation active state on scroll (only on homepage)
   var nav_sections = $('section');
-  var main_nav = $('.nav-menu, .mobile-nav');
+  var main_nav     = $('.nav-menu, .mobile-nav');
 
   $(window).on('scroll', function() {
+    // bail out if we’re not on the home page
+    var path = window.location.pathname;
+    if (path !== '/' && !path.endsWith('index.html')) return;
+
     var cur_pos = $(this).scrollTop() + 200;
 
     nav_sections.each(function() {
-      var top = $(this).offset().top,
-        bottom = top + $(this).outerHeight();
+      var top    = $(this).offset().top,
+          bottom = top + $(this).outerHeight();
 
       if (cur_pos >= top && cur_pos <= bottom) {
-        if (cur_pos <= bottom) {
-          main_nav.find('li').removeClass('active');
-        }
-        main_nav.find('a[href="#' + $(this).attr('id') + '"]').parent('li').addClass('active');
-      }
-      if (cur_pos < 300) {
-        $(".nav-menu ul:first li:first").addClass('active');
+        main_nav.find('li').removeClass('active');
+        main_nav
+          .find('a[href="#' + $(this).attr('id') + '"]')
+          .parent('li')
+          .addClass('active');
       }
     });
+
+    // reset to Home when we're scrolled to the very top
+    if ($(this).scrollTop() < 300) {
+      main_nav.find('li').removeClass('active');
+      $(".nav-menu ul:first li:first").addClass('active');
+    }
   });
 
   // Toggle .header-scrolled class to #header when page is scrolled

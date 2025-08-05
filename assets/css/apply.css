@@ -137,23 +137,24 @@ li span {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
-.nav-menu, .nav-menu * {
+.nav-menu,
+.nav-menu * {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.nav-menu > ul > li {
+.nav-menu>ul>li {
   position: relative;
   white-space: nowrap;
   float: left;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .nav-menu a {
   display: block;
   position: relative;
-  color: var(--baja-white);
+  color: black;
   padding: 20px 15px;
   transition: 0.3s;
   font-size: 13px;
@@ -162,12 +163,15 @@ li span {
   font-weight: 500;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  background: rgba(255, 255, 255, 0.2);
+.nav-menu a:hover,
+.nav-menu .active>a,
+.nav-menu li:hover>a {
+  background: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+  color: var(--baja-red);
 }
 
-.header-scrolled .nav-menu > ul > li {
+.header-scrolled .nav-menu>ul>li {
   background: none;
 }
 
@@ -175,7 +179,9 @@ li span {
   color: #fff;
 }
 
-.header-scrolled .nav-menu a:hover, .header-scrolled .nav-menu .active > a, .header-scrolled .nav-menu li:hover > a {
+.header-scrolled .nav-menu a:hover,
+.header-scrolled .nav-menu .active>a,
+.header-scrolled .nav-menu li:hover>a {
   background: var(--baja-red);
 }
 
@@ -188,12 +194,12 @@ li span {
   opacity: 0;
   visibility: hidden;
   padding: 10px 0;
-  background: #fff;
+  background: black;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
   transition: ease all 0.3s;
 }
 
-.nav-menu .drop-down:hover > ul {
+.nav-menu .drop-down:hover>ul {
   opacity: 1;
   top: 100%;
   visibility: visible;
@@ -212,11 +218,13 @@ li span {
   color: #25607a;
 }
 
-.nav-menu .drop-down ul a:hover, .nav-menu .drop-down ul .active > a, .nav-menu .drop-down ul li:hover > a {
+.nav-menu .drop-down ul a:hover,
+.nav-menu .drop-down ul .active>a,
+.nav-menu .drop-down ul li:hover>a {
   color: #67b0d1;
 }
 
-.nav-menu .drop-down > a:after {
+.nav-menu .drop-down>a:after {
   content: "\ea99";
   font-family: IcoFont;
   padding-left: 5px;
@@ -227,17 +235,17 @@ li span {
   left: calc(100% - 30px);
 }
 
-.nav-menu .drop-down .drop-down:hover > ul {
+.nav-menu .drop-down .drop-down:hover>ul {
   opacity: 1;
   top: 0;
   left: 100%;
 }
 
-.nav-menu .drop-down .drop-down > a {
+.nav-menu .drop-down .drop-down>a {
   padding-right: 35px;
 }
 
-.nav-menu .drop-down .drop-down > a:after {
+.nav-menu .drop-down .drop-down>a:after {
   content: "\eaa0";
   font-family: IcoFont;
   position: absolute;
@@ -248,10 +256,12 @@ li span {
   .nav-menu .drop-down .drop-down ul {
     left: -90%;
   }
-  .nav-menu .drop-down .drop-down:hover > ul {
+
+  .nav-menu .drop-down .drop-down:hover>ul {
     left: -100%;
   }
-  .nav-menu .drop-down .drop-down > a:after {
+
+  .nav-menu .drop-down .drop-down>a:after {
     content: "\ea9d";
   }
 }
@@ -826,6 +836,13 @@ section {
   color: var(--baja-white);
 }
 
+.cta .cta-btn.past {
+  background-color: var(--baja-light-gray);
+  color: var(--baja-dark-gray);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* Timeline-style Event List */
 .cta ul.event-list {
   position: relative;
@@ -842,8 +859,15 @@ section {
   top: 0;
   bottom: 0;
   width: 2px;
-  background-color: var(--baja-red);
+  background: var(--baja-red);
   z-index: 0;
+}
+
+.cta ul.event-list.has-past::before {
+  background: linear-gradient( to bottom,
+    var(--baja-light-gray) 0%, var(--baja-light-gray) calc(var(--past-percent) - 4%),
+    var(--baja-red) calc(var(--past-percent) + 4%), var(--baja-red) 100%
+  );
 }
 
 .cta ul.event-list li {
@@ -851,7 +875,7 @@ section {
   display: flex;
   flex-direction: column;
   padding-left: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   z-index: 1;
 }
 
@@ -867,6 +891,11 @@ section {
   z-index: 2;
 }
 
+.cta ul.event-list li.past::before {
+  background-color: var(--baja-light-gray) !important;
+  transition: background-color 0.3s ease;
+}
+
 /* Title + Details */
 .cta ul.event-list .event-title {
   font-weight: 700;
@@ -878,6 +907,60 @@ section {
 .cta ul.event-list .event-details {
   color: var(--baja-light-gray);
   font-size: 14px;
+}
+
+.event-list li.past .event-title,
+.event-list li.past .event-details {
+  color: var(--baja-light-gray);
+  opacity: 0.6;
+}
+
+.event-list li.past::before {
+  background-color: var(--baja-light-gray);
+}
+
+/* 1) No dot on due items */
+.cta ul.event-list li.due::before {
+  content: none;
+}
+
+/* 2) Tighter spacing under “due” row */
+.cta ul.event-list li.due {
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+/* 3) Red dashed line, aligned with the other dots (6px down) */
+.cta ul.event-list li.due::after {
+  content: "";
+  position: absolute;
+  top: 10px;               /* same vertical as your red bullets */
+  left: 5px;
+  width: 20px;
+  right: 0;
+  border-top: 1px dashed var(--baja-red);
+  z-index: 1;
+}
+
+/* 4) Label pops out of the line, in red until it grays out */
+.cta ul.event-list li.due .due-title {
+  position: relative;
+  display: inline-block;
+  background: var(--baja-dark-gray);
+  color: var(--baja-red);
+  font-weight: 700;
+  font-size: 14px;
+  font-style: italic;
+  z-index: 2;
+}
+
+/* 5) When the due date is past, gray‑out both the line and the label */
+.cta ul.event-list li.due.past::after {
+  border-top-color: var(--baja-light-gray);
+}
+.cta ul.event-list li.due.past .due-title {
+  color: var(--baja-light-gray);
+  opacity: 0.6;
 }
 
 /*--------------------------------------------------------------
