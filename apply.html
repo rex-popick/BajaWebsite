@@ -83,15 +83,15 @@
       <div class="container" data-aos="zoom-in">
 
         <div class="text-center">
-          <h3>Apply for Fall 2025</h3>
+          <h3>Fall 2025</h3>
           <div class="text-center">
 
-            <!-- <p> Thank you so much for your interest in joining Baja Racing at Cornell!  -->
-              <!-- Unfortunately, our Fall 2025 applications are now closed. </p>
-              Unfortunately, we do not recruit in the Spring cycle.
+            <p> Thank you so much for your interest in joining Baja Racing at Cornell! </br>
+              Unfortunately, our Fall 2025 applications are now closed. </p>
+             <!-- Unfortunately, we do not recruit in the Spring cycle.
             <p>Stay tuned for our next opportunity in Fall 2025, and we look forward to seeing your application then! </p> -->
-            <br>
-            <p>
+
+            <!-- <p>
               <a class="cta-btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfNxmcE_pRKSp7ZtTklgBvI-_yqL4EvTTH56TezF5XoNSPYJQ/viewform?usp=dialog"
                 data-date="2025-09-04" > Upperclassmen (Due Sept. 4 @ 11:59 p.m.) </a>
                 <br>
@@ -123,26 +123,21 @@
                     <span class="event-title">Info Session #3</span>
                     <span class="event-details">Wednesday, Oct. 8 <br> 4:30–5:30 p.m. @ Upson 222</span>
                   </li>
-                  <li data-date="2025-10-15">
-                    <span class="event-title">Info Session #4</span>
-                    <span class="event-details">Wednesday, Oct. 15 <br> 4:30–5:30 p.m. @ Upson 222</span>
-                  </li>
                   <li class="due" data-date="2025-10-16">
                     <span class="due-title">First/Transfer Apps Due</span>
                   </li>
                 </ul>
               </div>
-              <p>We look forward to receiving your application!</p>
+              <p>We look forward to receiving your application!</p> -->
             </div>
         </div>
       </div>
     </section><!-- End Cta Section -->
 
     <div class="embed-responsive embed-responsive-16by9">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/K7ze2nnfF-w" title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen></iframe>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/C98_1m_rgm4?si=EKpROvP0lJheIjhb&amp;start=2488" 
+      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
 
@@ -236,28 +231,45 @@
   <script src="assets/js/main.js"></script>
   <script>
   document.addEventListener("DOMContentLoaded", () => {
-    const today = new Date()
-    today.setHours(0,0,0,0);
+    // Parse "YYYY-MM-DD" as a LOCAL midnight date (not UTC)
+    const parseLocalYMD = (ymd) => {
+      const [y, m, d] = ymd.split("-").map(Number);
+      return new Date(y, m - 1, d); // local midnight
+    };
 
-    // find every element that has a data-date
-    document.querySelectorAll('[data-date]').forEach(el => {
-      const due = new Date(el.getAttribute('data-date'));
-      due.setHours(0,0,0,0);
-      if (due < today) {
-        el.classList.add('past');
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // local midnight today
+
+    // Find everything with data-date
+    document.querySelectorAll("[data-date]").forEach(el => {
+      const dueAttr = el.getAttribute("data-date");
+      if (!dueAttr) return;
+
+      const due = parseLocalYMD(dueAttr);  // local midnight of due date
+      const cutoff = new Date(due);
+      cutoff.setDate(cutoff.getDate() + 1); // grey out starting the day AFTER
+
+      // Always add the class to the LI if there is one; otherwise to the element itself
+      const target = el.closest("li") || el;
+
+      if (cutoff <= today) {
+        target.classList.add("past");
+      } else {
+        target.classList.remove("past");
       }
     });
 
-    const list = document.querySelector('.event-list');
+    // Progress styling
+    const list = document.querySelector(".event-list");
     if (list) {
-      const items = Array.from(list.querySelectorAll('li[data-date]'));
-      const pastCount = items.filter(li => li.classList.contains('past')).length;
+      const items = Array.from(list.querySelectorAll("li[data-date]"));
+      const pastCount = items.filter(li => li.classList.contains("past")).length;
       if (pastCount) {
-        list.classList.add('has-past');
-        list.style.setProperty(
-          '--past-percent',
-          `${(pastCount / items.length) * 100}%`
-        );
+        list.classList.add("has-past");
+        list.style.setProperty("--past-percent", `${(pastCount / items.length) * 100}%`);
+      } else {
+        list.classList.remove("has-past");
+        list.style.removeProperty("--past-percent");
       }
     }
   });
