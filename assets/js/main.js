@@ -195,6 +195,41 @@
     items: 1
   });
 
+  // Newsletter — Mailchimp JSONP (no redirect)
+  $(document).on('submit', '#footer-newsletter-form', function(e) {
+    e.preventDefault();
+    var $form = $(this);
+    var $response = $('#newsletter-response');
+    var email = $form.find('input[name="EMAIL"]').val();
+    $response.text('').removeClass('newsletter-ok newsletter-err');
+
+    $.ajax({
+      type: 'GET',
+      url: 'https://gmail.us8.list-manage.com/subscribe/post-json',
+      data: {
+        u: '7753dd8c8ad8c5e23d5649dcd',
+        id: '9930fe93c5',
+        f_id: '001031e3f0',
+        EMAIL: email,
+        b_7753dd8c8ad8c5e23d5649dcd_9930fe93c5: ''
+      },
+      dataType: 'jsonp',
+      success: function(data) {
+        if (data.result === 'success') {
+          $response.addClass('newsletter-ok').text('Thanks for subscribing!');
+          $form.find('input[name="EMAIL"]').val('');
+        } else {
+          var msg = data.msg || 'Something went wrong. Please try again.';
+          msg = msg.replace(/<[^>]+>/g, '').replace(/^\d+ - /, '');
+          $response.addClass('newsletter-err').text(msg);
+        }
+      },
+      error: function() {
+        $response.addClass('newsletter-err').text('Could not connect. Please try again.');
+      }
+    });
+  });
+
   // Init AOS
   function aos_init() {
     AOS.init({

@@ -2070,12 +2070,63 @@ html, body {
   .timeline::before {
     display: none;
   }
-  
+
   .point {
-    display: none; /* Hide the red dots */
+    display: none;
   }
 }
 
+@media (max-width: 768px) {
+  .timeline {
+    width: 95%;
+  }
+
+  /* Stack each year entry as a single column, year/photo first */
+  .timeline ul li,
+  .timeline ul li:nth-child(even) {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    margin-bottom: 30px;
+  }
+
+  /* Full-width content and date panels */
+  .timeline ul li .content,
+  .timeline ul li .date {
+    width: 100%;
+    padding: 0;
+    margin-right: 0;
+  }
+
+  /* Stack competition columns vertically */
+  .timeline .content {
+    flex-direction: column;
+  }
+
+  .timeline .content .column {
+    width: 100%;
+  }
+
+  /* Responsive photo */
+  .timeline-pic {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Remove desktop-only right padding */
+  #right-content {
+    padding-right: 0;
+  }
+
+  /* Unify text alignment to left on mobile */
+  .align-right,
+  .align-left,
+  .timeline ul li .date h3,
+  .timeline ul li .date p,
+  .timeline ul li .content h3,
+  .timeline ul li .content p {
+    text-align: left;
+  }
+}
 
 @media (max-width: 650px) {
     html, body {
