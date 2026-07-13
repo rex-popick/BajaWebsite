@@ -24,6 +24,13 @@ if [[ "${HTML_FILES[0]}" == "*.html" ]]; then
   exit 1
 fi
 
+# Also ship the SEO root files, if present
+for extra in robots.txt sitemap.xml; do
+  if [[ -f "$extra" ]]; then
+    HTML_FILES+=("$extra")
+  fi
+done
+
 echo "========================================="
 echo " Deploying BajaWebsite"
 echo " Repo:   $REPO_ROOT"

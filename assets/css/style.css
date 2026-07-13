@@ -1728,3 +1728,146 @@ button:hover {
 footer .credits a:hover {
   color: inherit;
 }
+
+/*--------------------------------------------------------------
+# Home Hero Carousel
+--------------------------------------------------------------*/
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0;
+}
+
+.mySlides {
+  flex: 0 0 100%;
+  display: block;
+}
+
+.slideshow-container img {
+  vertical-align: middle;
+}
+
+.slideshow-container {
+  max-width: 2000px;
+  max-height: 650px;
+  position: relative;
+  margin: auto;
+}
+
+.slider-track {
+  transition: transform 1.5s ease;
+}
+
+.slideshow-container .prev,
+.slideshow-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  opacity: 1;
+  color: #000 !important;
+  background: rgba(255, 255, 255, 0.4);
+  font-weight: bold;
+  font-size: 24px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.slideshow-container .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.slideshow-container .prev:hover,
+.slideshow-container .next:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.slideshow-container .text {
+  color: whitesmoke;
+  font-family: "Raleway", sans-serif;
+  font-size: 50px;
+  padding: 0px 0px;
+  position: absolute;
+  bottom: 200px;
+  right: 50px;
+  width: 100%;
+  text-align: right;
+}
+
+.slideshow-container .numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+#dots .dot {
+  position: relative;
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: var(--baja-white);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+#dots .dot.active,
+#dots .dot:hover {
+  background-color: var(--baja-dark-gray);
+}
+
+@media only screen and (max-width: 300px) {
+  .slideshow-container .prev,
+  .slideshow-container .next,
+  .slideshow-container .text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slideshow-container .text {
+    text-align: center;
+    right: 0px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .slideshow-container img {
+    object-position: left;
+  }
+}
+
+@media (max-width: 896px) {
+  .slideshow-container img {
+    height: 70vh;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .slideshow-container {
+    margin-bottom: 0;
+  }
+
+  .slideshow-container .text {
+    font-size: 30px;
+    bottom: 20px;
+  }
+
+  #dots .dot {
+    margin: 20px 2px;
+  }
+
+  #dots {
+    background-color: var(--baja-dark-gray);
+  }
+}

@@ -859,7 +859,7 @@ section {
   position: relative;
   list-style: none;
   padding-left: 0;
-  margin: 40px auto;
+  margin: 15px auto 40px;
   max-width: 600px;
 }
 
@@ -1645,4 +1645,22 @@ section {
 
 .half-break {
   margin-top: 8px;
+}
+
+/* Side by side on desktop, wraps to stacked automatically on narrow screens */
+.cta .cta-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.cta .apply-label {
+  color: var(--baja-white);
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 25px;
+  margin-bottom: 8px;
 }

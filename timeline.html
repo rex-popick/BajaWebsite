@@ -6,7 +6,7 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>History - Baja Racing at Cornell</title>
-  <meta content="" name="descriptison">
+  <meta name="description" content="Explore the competition history of Baja Racing at Cornell, founded in 2003 — 10 competition wins and 30 top-five finishes since our first race in 2006.">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
@@ -29,36 +29,58 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/timeline.css" rel="stylesheet">
 
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "SportsOrganization",
+    "StudentOrganization"
+  ],
+  "@id": "https://baja.mae.cornell.edu/#organization",
+  "name": "Baja Racing at Cornell",
+  "alternateName": "Cornell Baja Racing",
+  "url": "https://baja.mae.cornell.edu/",
+  "logo": "https://baja.mae.cornell.edu/assets/img/logo_header.png",
+  "image": "https://baja.mae.cornell.edu/assets/img/og-image.jpg",
+  "description": "Baja Racing at Cornell is a 50+ member student engineering project team, one of 36 Student Project Teams in Cornell Engineering, that designs, builds, and races an off-road vehicle each year to compete in the SAE Collegiate Baja Design Series. Beyond the car itself, the team's business subteam runs competition logistics, the SAE Business Presentation event, sponsor relations, fundraising and budgeting, the team website, apparel and merchandise, and the #girlsofbaja initiative celebrating female engineers on the team.",
+  "foundingDate": "2003",
+  "email": "baja@cornell.edu",
+  "sameAs": [
+    "https://www.instagram.com/cornellbajaracing/",
+    "https://www.youtube.com/channel/UCWR_k8SY67ITAh7-pS7St8w",
+    "https://www.linkedin.com/company/cornell-baja-racing/",
+    "https://www.tiktok.com/@cornell.baja.racing"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ithaca",
+    "addressRegion": "NY",
+    "addressCountry": "US"
+  },
+  "parentOrganization": {
+    "@type": "CollegeOrUniversity",
+    "name": "Cornell University",
+    "url": "https://www.cornell.edu/"
+  },
+  "award": [
+    "Iron Team designation (podium finish at all three SAE Baja competitions in a season) \u2014 the first Cornell Baja team to earn Iron Team status since 2014",
+    "1st Place Overall at all three 2025 SAE Baja competitions: Marana, AZ; Mechanicsville, MD; and Gray Court, SC",
+    "Recognized by Cornell Engineering as a top project team, including a Best Mechanical Engineering Project Team distinction",
+    "10 SAE Baja competition wins and 30 top-five finishes since first competing in 2006",
+    "Multiple 1st, 2nd, and 3rd Place finishes for the Mike Schmidt Memorial Award",
+    "SAE Baja Attention to Detail Award",
+    "SAE Baja Technology Award",
+    "SAE Baja Inventor Award"
+  ]
+}
+  </script>
+
 </head>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top header-transparent">
-    <div class="container d-flex align-items-center">
-
-      <div class="logo mr-auto">
-        <a href="index.html"><img src="assets/img/logo_header.png" alt="" class="img-fluid"></a>
-        <h1 class="text-light"><a href="index.html"><span>Baja Racing at Cornell</span></a></h1>
-      </div>
-
-      <nav class="nav-menu d-none d-lg-block">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="apply.html">Apply</a></li>
-          <li><a href="https://securelb.imodules.com/s/1717/alumni/index.aspx?sid=1717&amp;gid=2&amp;pgid=403&amp;cid=1031&amp;dids=914&amp;sort=1&amp;bledit=10" target="_blank" rel="noopener">Donate</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="team.html">Team</a></li>
-          <li class="active"><a href="timeline.html">History</a></li>
-          <li><a href="sponsors.html">Sponsors</a></li>
-          <li><a href="girlsofbaja.html">#girlsofbaja</a></li>
-          <li><a href="contact.html">Contact</a></li>
-
-        </ul>
-      </nav><!-- .nav-menu -->
-
-    </div>
-  </header><!-- End Header -->
+  <div id="site-header"></div>
 
   <!-- ======= Hero Section ======= -->
   <section id="hero">
@@ -1008,11 +1030,6 @@
 
   <div id="site-footer"></div>
 
-  <script>
-    fetch('footer.html')
-      .then(r => r.text())
-      .then(html => { document.getElementById('site-footer').innerHTML = html; });
-  </script>
 
   <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
