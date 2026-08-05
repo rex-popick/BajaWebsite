@@ -774,6 +774,22 @@ section {
   margin-left: 60px;
 }
 
+/* "50+%" needs the +% suffix on the same line as the counted number,
+   unlike the plain-number stats above. */
+.counts .count-box .count-value {
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  color: #2f4d5a;
+  margin-left: 60px;
+}
+
+.counts .count-box .count-value span {
+  display: inline;
+  margin-left: 0;
+}
+
 .counts .count-box p {
   padding: 15px 0 0 0;
   margin: 0 0 0 60px;
@@ -1267,42 +1283,6 @@ section {
 
 .team .member .social i {
   font-size: 16px;
-}
-
-@media (min-width: 992px) {
-  .team .col-lg-6 {
-    flex: 0 0 25%;
-    max-width: 50%;
-    padding: 40px;
-    box-sizing: border-box;
-  }
-}
-
-/* Keep the Logistics/Onboarding Lead cards photo-sized instead of
-   stretching to the full column width (the column is full-bleed below
-   the 992px breakpoint). */
-.team .col-lg-6 .member {
-  max-width: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* "Onboarding Lead" doesn't fit on one line at the default 32px in this
-   narrow column, which wraps and pushes that card lower than its
-   sibling. Shrink just these two titles so neither wraps. */
-.team .col-lg-6 .section-title h2 {
-  font-size: 26px;
-}
-
-/* Below 992px the column no longer has its own bottom padding, so
-   .member's margin-bottom (reserved for the absolutely-positioned
-   .member-info box) collapses away instead of creating a gap — the next
-   stacked card's title ends up drawn on top of it. Padding never
-   collapses, so it reliably keeps the two stacked cards apart. */
-@media (max-width: 991px) {
-  .team .col-lg-6 {
-    padding-bottom: 70px;
-  }
 }
 
 /* Style for subteam leads */
