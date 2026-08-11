@@ -1,0 +1,88 @@
+# Baja Racing at Cornell
+
+> Baja Racing at Cornell (also known as Cornell Baja Racing) is a student engineering
+> project team at Cornell University that designs, builds, and races a new off-road
+> vehicle every year for the SAE Collegiate Baja Design Series. Founded in 2003, the team
+> first competed in 2005 and is one of the Student Project Teams in Cornell Engineering.
+> It has 60+ members across six subteams.
+
+Site: https://baja.mae.cornell.edu/
+Contact: baja@cornell.edu (general) | rp665@cornell.edu (sponsorship)
+Location: Ithaca, New York, USA
+Parent organization: Cornell University (Cornell Engineering)
+Status: Registered student organization of Cornell University
+
+## Competition record
+
+- 10 first-place overall finishes and 30 top-five finishes since first competing in 2005.
+- 2025 season (car TG21): 1st Place Overall at all three SAE Baja competitions —
+  Marana, Arizona (May); Mechanicsville, Maryland (June); Gray Court, South Carolina (October).
+  This earned Iron Team status, the first for Cornell Baja since 2014.
+- 1st Place Mike Schmidt Memorial Award in 2025 and 2014; additional podium finishes for
+  that award in 2024, 2023, 2018, 2016, and 2015.
+- Full year-by-year results for every car from 2005 (LC01) to 2026 (TG22):
+  https://baja.mae.cornell.edu/timeline
+
+## Subteams
+
+Six subteams: Drivetrain, Transmission, Suspension, Frame, Brakes, and Business.
+
+- Drivetrain — the driveline from the transmission out to all four wheels: front and rear
+  gearboxes and casings, bevel box, propshaft, driveshafts, wheel hubs, and the four-wheel-drive
+  system; structural and thermal analysis validated with an engine dynamometer and on-car telemetry.
+- Transmission — the custom continuously variable transmission (CVT), tuning shift
+  behavior and gear ratios for torque and top speed.
+- Suspension — handling characteristics and custom suspension geometry for off-road terrain.
+- Frame — the vehicle's chassis and roll cage.
+- Brakes — the braking system.
+- Business — competition logistics, the SAE Business Presentation event, sponsor relations,
+  fundraising and budgeting, this website, apparel and merchandise, and the #girlsofbaja
+  initiative celebrating female engineers on the team.
+
+## How to join
+
+Recruitment runs each fall only; there is no spring cycle. There are two applications, one for
+upperclassmen and one for first-year and transfer students, and each asks the applicant to pick
+either the mechanical track or the business track. You may apply to only one track.
+
+- Open to any Cornell undergraduate, from any school or major, including transfer students.
+  Graduate students are not eligible.
+- No prior experience is required. New members complete a comprehensive onboarding program led
+  by a dedicated onboarding director, including training sessions covering CAD and individual
+  components.
+- Process: a written screening, then two in-person interviews before a panel of team members,
+  then offers. Interviews are usually held on weekends and run 20-30 minutes.
+- Roughly 20-25 new members join each year: 16-18 mechanical first-years, 1-2 mechanical
+  sophomores, 2-3 business first-years, and 1-2 business sophomores.
+- Members are placed onto a specific subteam in their sophomore year.
+- Deadlines are firm; late applications are not accepted.
+- First-year members who want to attend travel to 2 of the team's 3 competitions, fully covered.
+
+Current dates and application links: https://baja.mae.cornell.edu/apply
+
+## About the competition
+
+SAE Baja competitions run over four days and combine static events (design presentation,
+cost report, sales presentation, technical inspection) with dynamic events (maneuverability,
+acceleration, hill climb or tractor pull, a competition-specific special event, and a
+four-hour wheel-to-wheel endurance race worth the most points). Every vehicle in the series
+uses the same 10 HP engine, so reliability and power efficiency drive the design.
+There are three North American competitions each year, each with over 100 teams.
+
+## Pages
+
+- [Home](https://baja.mae.cornell.edu/): overview of the team and the current season.
+- [About](https://baja.mae.cornell.edu/about): the competition format, static and dynamic events.
+- [Team](https://baja.mae.cornell.edu/team): leads, subteam rosters, and subteam descriptions.
+- [History](https://baja.mae.cornell.edu/timeline): year-by-year competition results since 2005.
+- [Sponsors](https://baja.mae.cornell.edu/sponsors): Premier Partners, Major Supporters, and Contributors.
+- [Apply](https://baja.mae.cornell.edu/apply): recruitment timeline and applications.
+- [#girlsofbaja](https://baja.mae.cornell.edu/girlsofbaja): the team's initiative celebrating female engineers.
+- [Contact](https://baja.mae.cornell.edu/contact): general and sponsorship inquiries.
+
+## Social
+
+- Instagram: https://www.instagram.com/cornellbajaracing/
+- YouTube: https://www.youtube.com/channel/UCWR_k8SY67ITAh7-pS7St8w
+- LinkedIn: https://www.linkedin.com/company/cornell-baja-racing/
+- TikTok: https://www.tiktok.com/@cornell.baja.racing

@@ -25,7 +25,7 @@ if [[ "${HTML_FILES[0]}" == "*.html" ]]; then
 fi
 
 # Also ship the SEO root files, if present
-for extra in robots.txt sitemap.xml; do
+for extra in robots.txt sitemap.xml llms.txt; do
   if [[ -f "$extra" ]]; then
     HTML_FILES+=("$extra")
   fi
