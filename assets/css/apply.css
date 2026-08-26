@@ -1728,3 +1728,14 @@ section {
   line-height: 26px;
   color: #4a4a4a;
 }
+
+/* Venue links sit on the dark CTA background, where the global black link
+   color is effectively invisible. */
+.cta ul.event-list .event-details a {
+  color: var(--baja-white);
+  text-decoration: underline;
+}
+
+.cta ul.event-list .event-details a:hover {
+  color: var(--baja-red);
+}
