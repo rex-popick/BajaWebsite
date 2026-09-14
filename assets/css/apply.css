@@ -874,12 +874,13 @@ section {
   z-index: 0;
 }
 
-/* --past-px is set by the page script to the last past marker's position, so
-   the grey ends exactly at that dot instead of at a fraction of the total height. */
+/* The page script sets --past-px to the bottom of the last past marker and
+   --fade-px to just above the next marker, so the grey-to-red fade fills the
+   gap between them without touching either dot. */
 .cta ul.event-list.has-past::before {
   background: linear-gradient(to bottom,
     var(--baja-light-gray) 0, var(--baja-light-gray) var(--past-px),
-    var(--baja-red) var(--past-px), var(--baja-red) 100%
+    var(--baja-red) var(--fade-px), var(--baja-red) 100%
   );
 }
 
@@ -1740,4 +1741,11 @@ section {
 
 .cta ul.event-list .event-details a:hover {
   color: var(--baja-red);
+}
+
+/* Once the row is past, the link greys with the rest of the row instead of
+   staying white, and no longer flashes red on hover. */
+.cta ul.event-list li.past .event-details a,
+.cta ul.event-list li.past .event-details a:hover {
+  color: var(--baja-light-gray);
 }

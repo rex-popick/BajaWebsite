@@ -432,17 +432,27 @@
     // percentage of the total would land between markers.
     const paintProgress = () => {
       document.querySelectorAll(".event-list").forEach(list => {
-        const past = Array.from(list.querySelectorAll("li[data-date].past"));
+        const items = Array.from(list.querySelectorAll("li[data-date]"));
+        const past = items.filter(li => li.classList.contains("past"));
         if (!past.length) {
           list.classList.remove("has-past");
           list.style.removeProperty("--past-px");
+          list.style.removeProperty("--fade-px");
           return;
         }
+        // Marker extents (see CSS): dots are 12px tall at top:6px; .due rows draw a
+        // dashed line at top:10px instead of a dot.
+        const top    = li => li.offsetTop + (li.classList.contains("due") ? 10 : 6);
+        const bottom = li => li.offsetTop + (li.classList.contains("due") ? 11 : 18);
         const last = past[past.length - 1];
-        // Marker centre: dot is 12px tall at top:6px; the .due dashed line sits at top:10px (see CSS)
-        const markerY = last.classList.contains("due") ? 10 : 12;
+        const next = items[items.indexOf(last) + 1];
+        // Solid grey through the last past marker, then fade to red, fully red a few
+        // px above the next marker so the fade never runs into it. All past: all grey.
+        const pastPx = next ? bottom(last) : list.offsetHeight;
+        const fadePx = next ? Math.max(top(next) - 4, pastPx + 1) : list.offsetHeight;
         list.classList.add("has-past");
-        list.style.setProperty("--past-px", `${last.offsetTop + markerY}px`);
+        list.style.setProperty("--past-px", `${pastPx}px`);
+        list.style.setProperty("--fade-px", `${fadePx}px`);
       });
     };
     paintProgress();
