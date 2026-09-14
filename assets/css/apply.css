@@ -874,10 +874,12 @@ section {
   z-index: 0;
 }
 
+/* --past-px is set by the page script to the last past marker's position, so
+   the grey ends exactly at that dot instead of at a fraction of the total height. */
 .cta ul.event-list.has-past::before {
-  background: linear-gradient( to bottom,
-    var(--baja-light-gray) 0%, var(--baja-light-gray) calc(var(--past-percent) - 4%),
-    var(--baja-red) calc(var(--past-percent) + 4%), var(--baja-red) 100%
+  background: linear-gradient(to bottom,
+    var(--baja-light-gray) 0, var(--baja-light-gray) var(--past-px),
+    var(--baja-red) var(--past-px), var(--baja-red) 100%
   );
 }
 
