@@ -1,3 +1,6 @@
 .DS_Store
 **/.DS_Store
 
+
+# deploy.sh records the last deployed commit here (per machine)
+.last-deploy
