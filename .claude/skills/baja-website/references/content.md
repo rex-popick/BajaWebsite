@@ -35,6 +35,14 @@ Member card (non-leads omit `lead` and the `.role` line; omit `.social` if there
 ```
 - When parsing cards, match `class="member"` **and** `class="member lead"`. A regex for only the first
   silently merges each lead's card into its neighbour. A real HTML parser (HTMLParser with div depth) is safer.
+- Also: a substring search for `<div class="member` matches `<div class="member-info">` inside the card. To
+  find a card's outer div use `^ *<div class="member(?: lead)?"` with a closing quote, then count div depth
+  to its end. Getting this wrong nests new cards inside a neighbour while tags still balance; after roster
+  edits, confirm every `.member` is a direct child of a `.row`.
+- Roster spreadsheets are a source of truth for names, subteams and class years, but a member's own request
+  wins for how their major is shown (Sava Iliev asked for Mechanical Engineering; the roster says AEP).
+  Use only name/position/class/major columns; the sheet also holds IDs, phones, birthdays, emergency
+  contacts and allergies, none of which belong in the repo.
 - A name change touches the `<h4>` **and** the img `alt`. The headshot filename and the person's LinkedIn
   slug may still carry the old name; renaming the image means uploading the new file too, and the LinkedIn
   slug only changes from the person's own profile.
@@ -46,7 +54,12 @@ Member card (non-leads omit `lead` and the `.role` line; omit `.social` if there
 - Subteam descriptions: about three sentences each, matter-of-fact tone. Scope split Rex asked for:
   **Transmission owns the CVT**; **Drivetrain** owns gearboxes, driveshafts, wheel hubs and the 4WD
   driveline. Don't list individual project assignments.
-- Headshots live in `assets/img/headshots/First_Last.webp`. Unreferenced ones were purged in Oct 2026;
+- Headshots live in `assets/img/headshots/First_Last.webp`: round, transparent corners, **600x600** (they
+  display at 250-300px, so 600 covers Retina). Photographers' exports come at 1200px and ~270 KB; shrink them
+  (`magick f -resize 600x600 -strip -quality 82 -define webp:alpha-quality=100 f`), which took the Team page
+  from 17 MB to 2 MB. Masters live in Box: `Cornell Baja/<year folder>/Headshots+Team Photos/Rounded Headshots`.
+  The hero is `headshots/banner.webp` (3000x2000, positioned `center 70%` in team.css). Box files arrive mode
+  600, so chmod 644 after copying. Unreferenced ones were purged in Oct 2026;
   check references in HTML **and** CSS before deleting (`banner.webp` is the hero, used only from team.css).
 
 ## Timeline (`timeline.html`)

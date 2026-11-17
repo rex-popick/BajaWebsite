@@ -16,7 +16,7 @@ Checks:
   6. Sponsors: no logo used twice, and logo files in sponsors_img that nothing uses.
 Exits 1 if any ERROR is found; WARN lines are informational.
 """
-import json, os, re, stat, subprocess, sys
+import html, json, os, re, stat, subprocess, sys
 from html.parser import HTMLParser
 
 ROOT = subprocess.run(["git", "rev-parse", "--show-toplevel"], capture_output=True,
@@ -58,16 +58,23 @@ for page in PAGES:
             orgs[page] = json.dumps(data, sort_keys=True)
         # 3: FAQ sync
         if t == "FAQPage":
-            visible = dict(re.findall(r"<summary>(.*?)</summary>\s*<p>(.*?)</p>", src, re.S))
+            visible = {html.unescape(q): a for q, a in
+                       re.findall(r"<summary>(.*?)</summary>\s*<p>(.*?)</p>", src, re.S)}
             for q in data["mainEntity"]:
                 name, ans = q["name"], q["acceptedAnswer"]["text"]
                 if name not in visible:
                     err(f"{page}: FAQ schema question has no visible copy: {name!r}")
-                elif visible[name].strip() != ans.strip():
+                elif html.unescape(visible[name]).strip() != html.unescape(ans).strip():
                     err(f"{page}: FAQ answer differs between visible text and schema: {name!r}")
             extra = set(visible) - {q["name"] for q in data["mainEntity"]}
             for name in extra:
                 err(f"{page}: visible FAQ question missing from schema: {name!r}")
+
+    # 4a: the host labels pages ISO-8859-1, so any raw non-ASCII character renders as
+    # garbage (an arrow became "\u00e2\u0086\u0092"). Write &rarr; / &mdash; in HTML and \u2014 in JSON-LD.
+    bad = sorted({c for c in src if ord(c) > 127})
+    if bad:
+        err(f"{page}: non-ASCII characters {bad} - use HTML entities (or \\uXXXX inside JSON-LD)")
 
     # 4: tag balance
     b = Balance(); b.feed(src)
@@ -92,6 +99,13 @@ if orgs:
             + " | ".join(", ".join(g) for g in groups))
     missing = [p for p in PAGES if p not in orgs and p not in ("header.html", "footer.html")]
     if missing: warn(f"pages without the Organization JSON-LD: {missing}")
+
+# 4b: same encoding rule for text assets served from the repo
+for f in ["llms.txt", "robots.txt", "sitemap.xml"] + \
+         [os.path.join(d, n) for d in ("assets/css", "assets/js") for n in os.listdir(d)
+          if n.endswith((".css", ".js"))]:
+    if os.path.isfile(f) and not open(f, encoding="utf-8").read().isascii():
+        err(f"{f}: contains non-ASCII characters (the host serves it as ISO-8859-1)")
 
 # 5b: CSS url() references
 for dirpath, _, files in os.walk("assets/css"):

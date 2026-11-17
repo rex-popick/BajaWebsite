@@ -26,7 +26,9 @@ The block must not contain `--` or the comment ends early.
 
 **Closing a cycle** is the reverse: wrap the buttons + schedule (through the `</div>` that closes the
 schedule's inline-block wrapper, or the tags won't balance), switch the heading and intro, and generalise
-the two FAQ answers. Previous closings for reference: commits `7980d6a` (2024) and `c1d536b` (2025).
+the two FAQ answers. Also on `team.html`, the New Members intro has two versions: a post-recruitment
+welcome (live in the off-season) and the recruiting pitch with an "Apply Now" button, kept in a
+`RECRUITING SEASON` comment. Swap them when opening or closing a cycle. Previous closings for reference: commits `7980d6a` (2024) and `c1d536b` (2025).
 
 ## Schedule markup and the inline script
 

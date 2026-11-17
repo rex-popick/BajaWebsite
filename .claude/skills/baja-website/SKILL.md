@@ -22,7 +22,7 @@ repo github.com/rex-popick/BajaWebsite, branch `main`.
 | `girlsofbaja.html`, `contact.html` | #girlsofbaja + merch; contact emails |
 | `header.html`, `footer.html` | Partials injected by `loadPartial()` in `assets/js/main.js` into `#site-header` / `#site-footer` |
 | `llms.txt`, `robots.txt`, `sitemap.xml` | AI-crawler summary and SEO files |
-| `.htaccess` | `/page.html` → 301 → `/page`; also `CheckSpelling On` (see deploy gotchas) |
+| `.htaccess` | `/page.html` → 301 → `/page`. Server config: **never deployed by deploy.sh**; see `references/deploy.md` before touching it |
 | `assets/css/<page>.css` | One stylesheet per page (index → `style.css`, girlsofbaja → `gobaja.css`) |
 | `deploy.sh` | Upload to the host; see `references/deploy.md` |
 
@@ -56,6 +56,9 @@ data: `FAQPage` on apply + about, a `Person` @graph of leads on team, an `ItemLi
   Rex answers quickly; when a request is ambiguous ("move it to the Tuesday"), offer the concrete options.
 - **Never delete an asset without grepping HTML, CSS and JS for it first.** Old commits are the backup:
   `git checkout <commit> -- <path>`.
+- **Keep every served file pure ASCII.** The host labels pages ISO-8859-1, so a raw `→` or `—` renders as
+  `â†’`. Write `&rarr;`, `&mdash;`, `&rsquo;` in HTML text, `\u2014` inside JSON-LD strings, and plain ASCII in
+  CSS/JS/llms.txt. check_site.py fails on any non-ASCII character.
 - Dark sections: the global `a { color: black }` is invisible on the dark CTA background; links there
   need an explicit colour rule.
 
