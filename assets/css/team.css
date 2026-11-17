@@ -384,7 +384,9 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: url("../img/headshots/banner.webp") top center;
+  /* Fall 2026 group photo: the team stands in the lower-middle of the frame, so anchor
+     70% down rather than at the top, or wide screens crop off the front row. */
+  background: url("../img/headshots/banner.webp") center 70%;
   background-size: cover;
   overflow: hidden;
   position: relative;
