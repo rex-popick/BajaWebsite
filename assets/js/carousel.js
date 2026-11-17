@@ -15,7 +15,7 @@ function showSlides(n) {
   dots[slideIndex-1].classList.add("active");
 }
 
-// --- auto‐advance control ---
+// --- auto-advance control ---
 var interval;
 function startAuto() {
   clearInterval(interval);

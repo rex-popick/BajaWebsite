@@ -15,7 +15,7 @@ Status: Registered student organization of Cornell University
 ## Competition record
 
 - 10 first-place overall finishes and 30 top-five finishes since first competing in 2005.
-- 2025 season (car TG21): 1st Place Overall at all three SAE Baja competitions —
+- 2025 season (car TG21): 1st Place Overall at all three SAE Baja competitions -
   Marana, Arizona (May); Mechanicsville, Maryland (June); Gray Court, South Carolina (October).
   This earned Iron Team status, the first for Cornell Baja since 2014.
 - 1st Place Mike Schmidt Memorial Award in 2025 and 2014; additional podium finishes for
@@ -27,15 +27,15 @@ Status: Registered student organization of Cornell University
 
 Six subteams: Drivetrain, Transmission, Suspension, Frame, Brakes, and Business.
 
-- Drivetrain — the driveline from the transmission out to all four wheels: front and rear
+- Drivetrain - the driveline from the transmission out to all four wheels: front and rear
   gearboxes and casings, bevel box, propshaft, driveshafts, wheel hubs, and the four-wheel-drive
   system; structural and thermal analysis validated with an engine dynamometer and on-car telemetry.
-- Transmission — the custom continuously variable transmission (CVT), tuning shift
+- Transmission - the custom continuously variable transmission (CVT), tuning shift
   behavior and gear ratios for torque and top speed.
-- Suspension — handling characteristics and custom suspension geometry for off-road terrain.
-- Frame — the vehicle's chassis and roll cage.
-- Brakes — the braking system.
-- Business — competition logistics, the SAE Business Presentation event, sponsor relations,
+- Suspension - handling characteristics and custom suspension geometry for off-road terrain.
+- Frame - the vehicle's chassis and roll cage.
+- Brakes - the braking system.
+- Business - competition logistics, the SAE Business Presentation event, sponsor relations,
   fundraising and budgeting, this website, apparel and merchandise, and the #girlsofbaja
   initiative celebrating female engineers on the team.
 

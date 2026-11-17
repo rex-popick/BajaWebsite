@@ -105,7 +105,7 @@
     var main_nav     = $('.nav-menu, .mobile-nav');
 
     $(window).on('scroll', function() {
-      // bail out if we’re not on the home page
+      // bail out if we're not on the home page
       var path = window.location.pathname;
       if (path !== '/' && !path.endsWith('index.html')) return;
 
@@ -212,7 +212,7 @@
     items: 1
   });
 
-  // Newsletter — Mailchimp JSONP (no redirect)
+  // Newsletter - Mailchimp JSONP (no redirect)
   $(document).on('submit', '#footer-newsletter-form', function(e) {
     e.preventDefault();
     var $form = $(this);
