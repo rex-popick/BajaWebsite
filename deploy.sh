@@ -29,7 +29,11 @@ SITE_URL="https://baja.mae.cornell.edu"
 NETID="rp665"
 MARKER=".last-deploy"
 # Repo files that are not part of the website and are never uploaded.
-NOT_SITE="README.md deploy.sh .gitignore $MARKER"
+# .htaccess is server config, not content: a directive the host doesn't support
+# takes the whole site down (Nov 2026: "CheckSpelling" -> 500, then a version
+# without "Options" -> 403 everywhere). Upload it by hand, deliberately, and
+# check the site right after.
+NOT_SITE="README.md deploy.sh .gitignore .htaccess $MARKER"
 # =========================================
 
 DRY_RUN=0
@@ -72,7 +76,6 @@ is_site_file() {
   for n in $NOT_SITE; do [[ "$f" == "$n" ]] && return 1; done
   case "$f" in
     .DS_Store|*/.DS_Store) return 1 ;;
-    .htaccess)             return 0 ;;   # server config, ships with the site
     .*)                    return 1 ;;   # editor/tool dirs: .vscode/, .claude/, ...
   esac
   return 0
@@ -216,7 +219,6 @@ echo
 echo "Checking each file on the live site:"
 FAILED=0
 for f in "${FILES[@]}"; do
-  [[ "$f" == ".htaccess" ]] && { echo "   --   $f (not publicly readable, skipped)"; continue; }
   url="${SITE_URL}/${f// /%20}"
   live="$(curl -sL --max-time 20 "$url" | shasum | cut -d' ' -f1 || true)"
   mine="$(shasum < "$f" | cut -d' ' -f1)"

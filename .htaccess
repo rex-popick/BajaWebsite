@@ -1,5 +1,4 @@
 Options +FollowSymLinks +SymLinksIfOwnerMatch
-CheckSpelling On
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
